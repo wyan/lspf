@@ -24,6 +24,7 @@ using namespace std ;
 /* Match brackets and braces and hilight mis-matches                                                   */
 /* *************************************************************************************************** */
 
+#include <boost/exception/diagnostic_information.hpp>
 #include "eHilight.h"
 
 #undef  MOD_NAME
@@ -42,7 +43,7 @@ void addHilight( logger* lg, hilight& h, const string& line, string& shadow )
 	{
 		llog( "E", "An exception has occured hilighting line "<<line<<endl) ;
 		exception_ptr ptr = current_exception() ;
-		llog( "E", "Exception: " << (ptr ? ptr.__cxa_exception_type()->name() : "Unknown" ) << endl ) ;
+		llog( "E", "Exception: " <<  boost::current_exception_diagnostic_information() << endl ) ;
 		llog( "E", "Hilighting disabled"<<endl) ;
 		h.hl_abend = true ;
 	}

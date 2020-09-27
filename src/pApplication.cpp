@@ -6078,8 +6078,7 @@ void pApplication::abendexc()
 	{
 		llog( "E", "An abend has occured during abend processing.  Cleanup will not be called" << endl ) ;
 	}
-	exception_ptr ptr = current_exception() ;
-	llog( "E", "Exception: " << (ptr ? ptr.__cxa_exception_type()->name() : "Unknown" ) << endl ) ;
+	llog( "E", "Exception: " << boost::current_exception_diagnostic_information() << endl ) ;
 	llog( "E", "Shutting down application: " << zappname << " Taskid: " << taskId << endl ) ;
 	abnormalEnd   = true  ;
 	terminateAppl = true  ;

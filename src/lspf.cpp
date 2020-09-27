@@ -35,6 +35,8 @@
 #include <boost/circular_buffer.hpp>
 #include <boost/filesystem.hpp>
 
+#include <boost/exception/diagnostic_information.hpp>
+
 boost::condition cond_appl ;
 boost::condition cond_lspf ;
 boost::condition cond_batch ;
